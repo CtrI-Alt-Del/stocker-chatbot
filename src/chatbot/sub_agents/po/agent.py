@@ -4,15 +4,13 @@ from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 from src.chatbot.sub_agents.po.tools import query_user_guide_pdf
 
-
 po_agent = Agent(
     name="po",
-    # model=LiteLlm(
-    #     base_url="https://openrouter.ai/api/v1",
-    #     model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
-    #     api_key=getenv("OPENROUTER_API_KEY"),
-    # ),
-    model="gemini-2.0-flash",
+    model=LiteLlm(
+        base_url="https://openrouter.ai/api/v1",
+        model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
+        api_key=getenv("OPENROUTER_API_KEY"),
+    ),
     description="Provide clear and accurate technical assistance to users regarding how to use Stocker, strictly based on the official user guide and the .FAQ documentation and the user guide PDF.",
     instruction="""
         You are the Product Owner for Stocker platform, an expert in providing clear and accurate technical assistance to users. Your responses should be based strictly on the official FAQ documentation and the user guide PDF.

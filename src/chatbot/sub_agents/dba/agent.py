@@ -10,17 +10,13 @@ from src.chatbot.sub_agents.dba.tools import (
     execute_sql_query,
 )
 
-# Quais produtos estão abaixo do estoque mínimo? Diga-me o nome do produto e o estoque atual de cada um.
-
-
 dba_agent = Agent(
     name="dba",
-    # model=LiteLlm(
-    #     base_url="https://openrouter.ai/api/v1",
-    #     model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
-    #     api_key=getenv("OPENROUTER_API_KEY"),
-    # ),
-    model="gemini-2.0-flash",
+    model=LiteLlm(
+        base_url="https://openrouter.ai/api/v1",
+        model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
+        api_key=getenv("OPENROUTER_API_KEY"),
+    ),
     description="Help the chatbot agent query and understand stock data from the database using provided tools.",
     instruction="""
         You are a Database Administrator (DBA) for Stocker, an inventory management platform.

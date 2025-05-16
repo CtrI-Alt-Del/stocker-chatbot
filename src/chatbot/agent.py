@@ -7,12 +7,11 @@ from src.chatbot.sub_agents import dba_agent, po_agent
 
 chatbot_agent = Agent(
     name="chatbot",
-    # model=LiteLlm(
-    #     base_url="https://openrouter.ai/api/v1",
-    #     model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
-    #     api_key=getenv("OPENROUTER_API_KEY"),
-    # ),
-    model="gemini-2.0-flash",
+    model=LiteLlm(
+        base_url="https://openrouter.ai/api/v1",
+        model="openrouter/meta-llama/llama-3.1-8b-instruct:free",
+        api_key=getenv("OPENROUTER_API_KEY"),
+    ),
     description="Efficiently triage and delegate user requests to the appropriate agent based on the nature of the question.",
     instruction="""
         You are the main chatbot agent for Stocker, an inventory management SaaS platform for small to mid-sized companies.
